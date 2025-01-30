@@ -325,7 +325,7 @@ Resources:
         ImageId: !Ref 'ECSAMI'
         InstanceType: !Ref 'InstanceType'
         # KeyName: MyKeyPair
-        SecurityGroupIds:: 
+        SecurityGroupIds: 
           - Ref ECSSecurityGroupInt
         UserData:
           Fn::Base64: !Sub |

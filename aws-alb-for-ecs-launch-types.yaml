@@ -258,7 +258,7 @@ Resources:
   ## Autoscaling group to launch EC2 instances that will register themselves to cluster
   ECSAutoScalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
-    DependsOn: [ECSDemoVPC, ECSDemoPublicSubnetOne, ECSDemoPublicSubnetTwo]
+    DependsOn: [ECSDemoVPC, ECSDemoPublicSubnetOne, ECSDemoPublicSubnetTwo, ECSInstanceLaunchTemplate]
     Properties:
       VPCZoneIdentifier:
         - !Ref ECSDemoPublicSubnetOne
@@ -325,7 +325,8 @@ Resources:
         ImageId: !Ref 'ECSAMI'
         InstanceType: !Ref 'InstanceType'
         # KeyName: MyKeyPair
-        SecurityGroups: [!Ref 'ECSSecurityGroupInt']
+        SecurityGroupIds:: 
+          - Ref ECSSecurityGroupInt
         UserData:
           Fn::Base64: !Sub |
             #!/bin/bash -xe

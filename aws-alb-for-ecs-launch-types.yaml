@@ -10,7 +10,7 @@ Parameters:
   #   Default: ecs-ec2-ssh
   #   Description: EC2 KeyPair in case you need to enable SSH access to the ECS instances.
   InstanceType:
-    Description: EC2 instance type
+    # Description: EC2 instance type
     Type: String
     Default: t3.small
     Description: Choose the EC2 instance type 
@@ -26,7 +26,7 @@ Parameters:
     Default: '6'
     Description: Maximum number of EC2 instances in your ECS cluster.
   ECSAMI:
-    Description: AMI ID
+    # Description: AMI ID
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
     Default: /aws/service/ecs/optimized-ami/amazon-linux-2/recommended/image_id
     Description: AMI ID for EC2 instance, default value is the latest AMI

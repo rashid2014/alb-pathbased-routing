@@ -326,7 +326,7 @@ Resources:
         InstanceType: !Ref 'InstanceType'
         # KeyName: MyKeyPair
         SecurityGroupIds: 
-          - Ref ECSSecurityGroupInt
+          - !GetAtt ECSSecurityGroupInt.GroupId
         UserData:
           Fn::Base64: !Sub |
             #!/bin/bash -xe
